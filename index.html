@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pig Latin Translator</title>
+  <script>
+    function translateToPigLatin(word) {
+      if (word.length === 0 || word.length === 1) {
+        return "Cannot translate: " + word;
+      }
+
+      let lowercaseWord = word.toLowerCase();
+
+      if (
+        lowercaseWord.startsWith("a") ||
+        lowercaseWord.startsWith("e") ||
+        lowercaseWord.startsWith("i") ||
+        lowercaseWord.startsWith("o") ||
+        lowercaseWord.startsWith("u")
+      ) {
+    
+        return word + "way";
+      } else if (
+        lowercaseWord.startsWith("b") ||
+        lowercaseWord.startsWith("c") ||
+        lowercaseWord.startsWith("d") ||
+        lowercaseWord.startsWith("f") ||
+        lowercaseWord.startsWith("g") ||
+        lowercaseWord.startsWith("h") ||
+        lowercaseWord.startsWith("j") ||
+        lowercaseWord.startsWith("k") ||
+        lowercaseWord.startsWith("l") ||
+        lowercaseWord.startsWith("m") ||
+        lowercaseWord.startsWith("n") ||
+        lowercaseWord.startsWith("p") ||
+        lowercaseWord.startsWith("q") ||
+        lowercaseWord.startsWith("r") ||
+        lowercaseWord.startsWith("s") ||
+        lowercaseWord.startsWith("t") ||
+        lowercaseWord.startsWith("v") ||
+        lowercaseWord.startsWith("w") ||
+        lowercaseWord.startsWith("x") ||
+        lowercaseWord.startsWith("y") ||
+        lowercaseWord.startsWith("z")
+      ) {
+        
+        return word.substr(1) + word.charAt(0) + "ay";
+      } else {
+    
+        return word.substr(2) + word.charAt(0) + word.charAt(1) + "ay";
+      }
+    }
+
+    function handleTranslation() {
+      let userInput = document.getElementById("input").value;
+
+      // Check if the user entered nothing
+      if (userInput.trim().length === 0) {
+        document.getElementById("translation").textContent = "Please enter a word.";
+        return;
+      }
+
+      let translatedText = translateToPigLatin(userInput);
+      document.getElementById("translation").textContent = translatedText;
+    }
+  </script>
+</head>
+<body>
+  <h1>Pig Latin Translator</h1>
+  <label for="input">Enter a word:</label>
+  <input type="text" id="input">
+  <button onclick="handleTranslation()">Translate</button>
+  <p id="translation"></p>
+</body>
+</html>
