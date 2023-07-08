@@ -11,11 +11,14 @@
     */
     
     function translateToPigLatin(word) {
+        // Check if the word is empty or a single letter
       if (word.length === 0 || word.length === 1) {
         return "Cannot translate: " + word;
       }
 
       let lowercaseWord = word.toLowerCase();
+
+    // Check if the word starts with a vowel
 
       if (
         lowercaseWord.startsWith("a") ||
@@ -58,15 +61,18 @@
     }
 
     function handleTranslation() {
+        // Get the user input from the input field
       let userInput = document.getElementById("input").value;
 
-      // Check if the user entered nothing
+       // Check if the user entered nothing
       if (userInput.trim().length === 0) {
         document.getElementById("translation").textContent = "Please enter a word.";
         return;
       }
 
       let translatedText = translateToPigLatin(userInput);
+      
+      // Display the translated text
       document.getElementById("translation").textContent = translatedText;
     }
   </script>
