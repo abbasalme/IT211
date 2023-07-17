@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Grades</title>
+</head>
+<body>
+  <h1>Student Grades</h1>
+  <div id="studentData"></div>
+
+  <script>
+    let grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
+
+    // Split the 'grades' string into an array of student data
+    let students = grades.split(", ");
+
+    // letiables for calculations
+    let totalStudents = students.length;
+    let lowestScore = Infinity;
+    let highestScore = -Infinity;
+    let sumScores = 0;
+
+    // Process each student's data
+    for (let i = 0; i < students.length; i++) {
+      // Split the student's name and score
+      let student = students[i].split("|");
+      let name = student[0];
+      let score = parseInt(student[1]);
+
+      // Capitalize the first letter of the student's name
+      let capitalizedFirstName = name.charAt(0).toUpperCase() + name.slice(1);
+
+      // Display the student's name and score
+      let studentInfo = document.createElement("p");
+      studentInfo.textContent = capitalizedFirstName + " - " + score;
+      document.getElementById("studentData").appendChild(studentInfo);
+
+      // Update calculations
+      lowestScore = Math.min(lowestScore, score);
+      highestScore = Math.max(highestScore, score);
+      sumScores += score;
+    }
+
+   
+  </script>
+</body>
+</html>
