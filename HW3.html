@@ -40,6 +40,16 @@
       sumScores += score;
     }
 
+     // Display the total number of students
+     let totalStudentsInfo = document.createElement("p");
+    totalStudentsInfo.textContent = "Total Students: " + totalStudents;
+    document.body.appendChild(totalStudentsInfo);
+
+    // Calculate and display the lowest, highest, and average scores
+    let averageScore = sumScores / totalStudents;
+    let statisticsInfo = document.createElement("p");
+    statisticsInfo.textContent = "Lowest Score: " + lowestScore + ", Highest Score: " + highestScore + ", Average Score: " + averageScore.toFixed(2);
+    document.body.appendChild(statisticsInfo);
    
   </script>
 </body>
